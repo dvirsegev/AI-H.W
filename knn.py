@@ -40,5 +40,7 @@ def knn_algorithm(folds, k):
                 good_predict += 1
         list_of_results.append(good_predict / len(test))
     # cal the avg predict of the algorithm.
-    avg = round(sum(list_of_results) / len(list_of_results), 2)
+    avg = sum(list_of_results) / len(list_of_results)
+    avg = round(avg * 100, 2)
     return avg
+

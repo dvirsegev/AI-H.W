@@ -4,14 +4,15 @@ import knn
 import decision_tree
 import naive_base
 
+
 ATTRIBUTES = []
 
-def readfiles():
+def readfiles(filename):
     """
     :return: the data examples.
     """
     global ATTRIBUTES
-    f = open("dataset.txt")
+    f = open(filename)
     data = list(csv.reader(f, delimiter='\t'))
     ATTRIBUTES = data[0]
     data.pop(0)
@@ -37,31 +38,49 @@ def k_fold_cross_validation(data, k):
     return folds
 
 
-def writing_results(results):
+def writing_results(results,filename):
     """
     :param results: the result
+    :param filename: the name of the file
     :return: write the result
     """
-    f = open("accuracy.txt", "w+")
-    f.write("<DT_accuracy>" + results[0] + "\t<KNN_accuracy>" + results[0] +
-            "\t<naiveBase_accuracy>" + results[0])
+    f = open(filename, "w+")
+    f.write("<DT_accuracy>" + str(results[0]) + "\t<KNN_accuracy>" + str(results[1]) +
+            "\t<naiveBase_accuracy>" + str(results[2]))
+    f.flush()
     f.close()
 
 
-def start_algorithms():
+
+def start_testing():
     """
     run all the algorithms.
     :return: the results.
     """
     global ATTRIBUTES
-    data = readfiles()
+    data = readfiles("dataset.txt")
     results = []
     folds = k_fold_cross_validation(data, k=5)
     results.append(decision_tree.start_algorithm(data,folds,ATTRIBUTES))
     results.append(knn.knn_algorithm(folds, k=5))
     results.append(naive_base.naive_base_result(folds))
-    writing_results(results)
+    writing_results(results,"accuracy.txt")
 
+def real_test():
+    """
+        run all the algorithms (real test).
+        :return: the results.
+        """
+    global ATTRIBUTES
+    data = readfiles("train.txt")
+    test = readfiles("test.txt")
+    results = []
+    folds = (data,test)
+    results.append(decision_tree.start_algorithm(data, folds, ATTRIBUTES))
+    results.append(knn.knn_algorithm(folds ,k=5))
+    results.append(naive_base.naive_base_result(folds))
+    writing_results(results, "output.txt")
 
 if __name__ == '__main__':
-    start_algorithms()
+    #start_testing()
+    real_test()

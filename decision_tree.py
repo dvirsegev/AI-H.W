@@ -1,15 +1,15 @@
-from math import log2
+from math import log
 import copy
 
 ATTRIBUTES = list()
 yes_table_count = 0
 no_table_count = 0
+map_attributes = {}
 
 
 class Node:
     def __init__(self):
         self.links = {}
-        self.type_of_attr = {}
         self.name_of_attr = ""
         self.gain = 0
         self.index = -1
@@ -21,7 +21,6 @@ class Node:
         :param attr_value: value of the node
         :param node: our node child.
         """
-
         self.links[attr_value] = node
 
     def set_setting(self, attr):
@@ -55,16 +54,13 @@ class Node:
         :return: yes or no
         """
         node = self
-        while True:
+        while node.class_type is "":
             current_sample_attr_val = sample[node.index]
             #  If attr_val not belongs to a branch in tree, return default choice based on the data the tree used
-            if current_sample_attr_val.class_type == "yes" or current_sample_attr_val.class_type == "no":
-                break
             if current_sample_attr_val not in node.links.keys():
                 return default
             node = node.links[current_sample_attr_val]
-        node.name_of_attr = current_sample_attr_val
-        return node.name_of_attr
+        return node.class_type
 
     def write_to_file(self, depth):
         """
@@ -72,7 +68,6 @@ class Node:
         :param node: our tree.
         :param depth: recursion depth(will help with tab printing
         """
-
         with open("tree.txt", 'a+') as f:
             sorted_keys = sorted(self.links)
             for attr in sorted_keys:
@@ -81,15 +76,15 @@ class Node:
                 if depth > 0:
                     f.write('|')
                 f.write(self.name_of_attr + '=' + attr)
-                child = self.links[attr]
+                child_node = self.links[attr]
                 #  Leaf:
-                if child.class_type == "yes" or child.class_type == "no":
-                    f.write(':' + child.class_type + '\n')
+                if child_node.class_type == "yes" or child_node.class_type == "no":
+                    f.write(':' + child_node.class_type + '\n')
                     f.flush()
                 else:
                     f.write('\n')
                     f.flush()
-                    child.write_to_file(depth + 1)
+                    child_node.write_to_file(depth + 1)
 
 
 def same_class_equal(train_data):
@@ -117,49 +112,63 @@ def calculate_entropy(yes_result, no_result):
     :return: calculate the entropy .
     """
     length = yes_result + no_result
-    first_break = -yes_result / length
+    if (length == 0):
+        return 0
+    first_break = yes_result / length
     second_break = no_result / length
     entopy_start = 0
     entropy_end = 0
     if first_break != 0:
-        entopy_start = first_break * log2(first_break)
+        entopy_start = -first_break * log(first_break, 2)
     if second_break != 0:
-        entropy_end = second_break * log2(second_break)
+        entropy_end = second_break * log(second_break, 2)
     return entopy_start - entropy_end
+
+
+def setMapAttributes(data):
+    """
+    :param data: our data examples.
+    :return: None.
+    """
+    global map_attributes, ATTRIBUTES
+    # dic that the key is the name of the attr and value is all the types.
+    for attributes in ATTRIBUTES:
+        map_attributes[attributes] = set()
+        for example in data:
+            # go all the examples and check about the spesific type.
+            map_attributes[attributes].add(example[ATTRIBUTES.index(attributes)])
 
 
 def gain(train_data, node):
     """
     :param train_data: our data
     :param node: our node for testing .
-    :return:
+    :return: the gain of the attribute .
     """
-    global yes_table_count, no_table_count
+    global yes_table_count, no_table_count, map_attributes
     regular_entropy = calculate_entropy(yes_table_count, no_table_count)
-    all_attr_types = {}
     result_attr_type = {}
     map_aie = {}
-    # go all the examples and check about the spesific type.
-    for example in train_data:
-        if example[node.index] not in all_attr_types:
-            all_attr_types[example[node.index]] = []
-        all_attr_types[example[node.index]].append(example)
-    node.type_of_attr = all_attr_types
-    for key in all_attr_types.keys():
+    x = map_attributes
+    for type_of_attr in map_attributes[node.name_of_attr]:
         yes_result = 0
         no_result = 0
         # cal for each type of the attribute his yes_count and no_count.
-        for example in all_attr_types[key]:
+        examples = []
+        for example in train_data:
+            if example[node.index] == type_of_attr:
+                examples.append(example)
+        for example in examples:
             if example[-1] == "yes":
                 yes_result += 1
             else:
                 no_result += 1
         # aie == average information entropy.
-        map_aie[key] = (yes_result + no_result) / (yes_table_count + no_table_count)
-        result_attr_type[key] = calculate_entropy(yes_result, no_result)
+        map_aie[type_of_attr] = (yes_result + no_result) / (yes_table_count + no_table_count)
+        result_attr_type[type_of_attr] = calculate_entropy(yes_result, no_result)
     aie = 0
-    for key in result_attr_type.keys():
-        aie = aie + (map_aie[key] * result_attr_type[key])
+    for type_of_attr in result_attr_type.keys():
+        aie = aie + (map_aie[type_of_attr] * result_attr_type[type_of_attr])
     node.gain = regular_entropy - aie
     return node
 
@@ -174,11 +183,12 @@ def choose_best_attribute(attributes, examples):
     # for each attributes set a node and cal the gain of his.
     for attr in attributes:
         node = Node()
+        # set index for the spesific attribiute.
         node.set_setting(attr)
         attr_node_list.append(gain(examples, node))
     # pick the best attributes.
-    max = 0
-    max_node = Node
+    max = -1
+    max_node = Node()
     for node in attr_node_list:
         if node.gain > max:
             max = node.gain
@@ -193,6 +203,10 @@ def dtl(train_data, attributes, default):
     :param default: default.
     :return: it's recusion function, in the end we return tree .
     """
+
+    global yes_table_count, no_table_count, map_attributes
+    yes_table_count = len([data for data in train_data if data[-1] == "yes"])
+    no_table_count = len([data for data in train_data if data[-1] == "no"])
     if len(train_data) == 0:
         return default
     if same_class_equal(train_data):
@@ -202,9 +216,7 @@ def dtl(train_data, attributes, default):
     if len(attributes) == 0:
         return default
     tree = choose_best_attribute(attributes, train_data)
-    for value_type in tree.type_of_attr.keys():
-        if (tree.name_of_attr == "cap_color"):
-            x=3
+    for value_type in map_attributes[tree.name_of_attr]:
         examples_per_value = [x for x in train_data if x[tree.index] == value_type]
         sub_attributes = copy.deepcopy(attributes)
         sub_attributes.remove(tree.name_of_attr)
@@ -216,18 +228,19 @@ def dtl(train_data, attributes, default):
 def start_algorithm(data, folds, attributes):
     """
 
-    :param attributes:
+    :param attributes: our attributes.
     :param folds: our data examples.
-    :return:
+    :return: how much accuracy is the algorithm
     """
-    global ATTRIBUTES
-    ATTRIBUTES = attributes
+    global ATTRIBUTES, map_attributes
+    ATTRIBUTES = attributes[:-1]
     # create and write the big tree .
-    create_and_write_big_tree(data)
-
+    big_tree = create_and_write_big_tree(data)
+    big_tree.write_to_file(0)
     list_of_results = list()
     global yes_table_count, no_table_count
     for train_data, test_data in folds:
+        map_attributes = {}
         # without can_eat row (yes/no row)
         attributes = ATTRIBUTES
         # set the default.
@@ -239,12 +252,18 @@ def start_algorithm(data, folds, attributes):
         else:
             default = Node()
             default.class_type = "no"
+        setMapAttributes(train_data)
         tree = dtl(train_data, attributes, default)
         list_of_results.append(tree.predict(test_data, default))
-    return round(sum(list_of_results) / len(list_of_results), 2)
+    predict = sum(list_of_results) / len(list_of_results)
+    return round(predict * 100, 2)
 
 
 def create_and_write_big_tree(data):
+    """
+    :param data: our data examples
+    :return: the big tree of all the data .
+    """
     global yes_table_count, no_table_count
     yes_table_count = len([data for data in data if data[-1] == "yes"])
     no_table_count = len([data for data in data if data[-1] == "no"])
@@ -254,7 +273,7 @@ def create_and_write_big_tree(data):
     else:
         default = Node()
         default.class_type = "no"
-    attributes = ATTRIBUTES[:-1]
+    attributes = ATTRIBUTES
+    setMapAttributes(data)
     big_tree = dtl(data, attributes, default)
-    big_tree.write_to_file(0)
-    z = 3
+    return big_tree

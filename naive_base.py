@@ -85,6 +85,7 @@ def naive_base_result(dataset):
             if predict == excpeded:
                 correct += 1
         list_of_results.append(correct / len(test_data))
-    avg = round(sum(list_of_results) / len(list_of_results), 2)
+    avg = sum(list_of_results) / len(list_of_results)
+    avg = round(avg * 100 , 2)
     return avg
 

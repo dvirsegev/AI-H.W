@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa915d79-879f-4ebf-91ae-f95b7122d51c" name="Default Changelist" comment="" />
+    <list default="true" id="fa915d79-879f-4ebf-91ae-f95b7122d51c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attribute Information.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/decision_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decision_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/knn.py" beforeDir="false" afterPath="$PROJECT_DIR$/knn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naive_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive_base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py_ex2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tree.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -14,7 +38,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1W3rIgc74QwT11SlDDr4d4R7gX5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,8 +50,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -97,6 +127,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="py_ex2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ex_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../ex2" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../ex2/py_ex2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="py_ex2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ex_2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,6 +174,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.py_ex2" />
+        <item itemvalue="Python.py_ex2 (1)" />
         <item itemvalue="Python.decision_tree" />
         <item itemvalue="Python.naive_base" />
         <item itemvalue="Python.knn" />
@@ -151,7 +204,7 @@
       <option name="presentableId" value="Default" />
       <updated>1578389041090</updated>
       <workItem from="1578389052144" duration="43756000" />
-      <workItem from="1579266902872" duration="28177000" />
+      <workItem from="1579266902872" duration="47352000" />
     </task>
     <servers />
   </component>
@@ -159,6 +212,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579701592596">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1579701592596" />
     <state x="438" y="68" key="#xdebugger.evaluate" timestamp="1578566042791">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -167,42 +224,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579608422882" />
-    <state width="1323" height="217" key="GridCell.Tab.0.bottom" timestamp="1579641917599">
+    <state width="1323" height="172" key="GridCell.Tab.0.bottom" timestamp="1579702285610">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579641917599" />
-    <state width="1323" height="217" key="GridCell.Tab.0.center" timestamp="1579641917599">
+    <state width="1323" height="172" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579702285610" />
+    <state width="1323" height="172" key="GridCell.Tab.0.center" timestamp="1579702285609">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579641917599" />
-    <state width="1323" height="217" key="GridCell.Tab.0.left" timestamp="1579641917599">
+    <state width="1323" height="172" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579702285609" />
+    <state width="1323" height="172" key="GridCell.Tab.0.left" timestamp="1579702285609">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579641917599" />
-    <state width="1323" height="217" key="GridCell.Tab.0.right" timestamp="1579641917599">
+    <state width="1323" height="172" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579702285609" />
+    <state width="1323" height="172" key="GridCell.Tab.0.right" timestamp="1579702285610">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579641917599" />
-    <state width="1323" height="217" key="GridCell.Tab.1.bottom" timestamp="1579641919118">
+    <state width="1323" height="172" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579702285610" />
+    <state width="1323" height="295" key="GridCell.Tab.1.bottom" timestamp="1579701487571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579641919118" />
-    <state width="1323" height="217" key="GridCell.Tab.1.center" timestamp="1579641919118">
+    <state width="1323" height="295" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579701487571" />
+    <state width="1323" height="295" key="GridCell.Tab.1.center" timestamp="1579701487571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579641919118" />
-    <state width="1323" height="217" key="GridCell.Tab.1.left" timestamp="1579641919118">
+    <state width="1323" height="295" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579701487571" />
+    <state width="1323" height="295" key="GridCell.Tab.1.left" timestamp="1579701487571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579641919118" />
-    <state width="1323" height="217" key="GridCell.Tab.1.right" timestamp="1579641919118">
+    <state width="1323" height="295" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579701487571" />
+    <state width="1323" height="295" key="GridCell.Tab.1.right" timestamp="1579701487571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="217" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579641919118" />
-    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1579606046076">
+    <state width="1323" height="295" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579701487571" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1579685237563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1579606046076" />
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1579685237563" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1579688777059">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1579688777059" />
     <state x="324" y="90" width="700" height="530" key="recent.locations.popup" timestamp="1579634618133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -216,9 +277,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/decision_tree.py</url>
-          <line>177</line>
-          <option name="timeStamp" value="139" />
+          <url>file://$PROJECT_DIR$/py_ex2.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="237" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -235,13 +296,17 @@
         <watch expression="attr_node_list" language="Python" />
         <watch expression="tree.links" />
         <watch expression="tree.links" />
+        <watch expression="node" />
+        <watch expression="regular_entropy" />
+        <watch expression="node" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ex_2$naive_base.coverage" NAME="naive_base Coverage Results" MODIFIED="1578775123325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ex_2$py_ex2__1_.coverage" NAME="py_ex2 (1) Coverage Results" MODIFIED="1579687280638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../ex2" />
     <SUITE FILE_PATH="coverage/ex_2$decision_tree.coverage" NAME="decision_tree Coverage Results" MODIFIED="1579635674209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ex_2$py_ex2.coverage" NAME="py_ex2 Coverage Results" MODIFIED="1579641917475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ex_2$py_ex2.coverage" NAME="py_ex2 Coverage Results" MODIFIED="1579701692341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ex_2$ex2.coverage" NAME="ex2 Coverage Results" MODIFIED="1578568265424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
